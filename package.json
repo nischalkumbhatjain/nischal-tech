@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:ghpages": "ng build --configuration production --base-href \"/nishchal-tech/\"",
-    "deploy": "npm run build:ghpages && npx gh-pages -d dist/nishchal-tech -b gh-pages"
+    "build:ghpages": "ng build --configuration production --base-href \"/nischal-tech/\"",
+    "deploy": "npm run build:ghpages && npx gh-pages -d dist/nischal-tech -b gh-pages"
   },
   "private": true,
   "dependencies": {
