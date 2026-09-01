@@ -6,7 +6,9 @@
     "start": "ng serve --o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:ghpages": "ng build --configuration production --base-href \"/nishchal-tech/\"",
+    "deploy": "npm run build:ghpages && npx gh-pages -d dist/nishchal-tech -b gh-pages"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +34,7 @@
     "@angular/cli": "~15.2.10",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
+    "gh-pages": "^6.3.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
