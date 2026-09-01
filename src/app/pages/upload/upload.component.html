@@ -1,0 +1,11 @@
+<div class="upload-card" *ngIf="!loading">
+
+    <h2>Upload Rate Sheet</h2>
+
+    <p>
+        Select Excel file to continue
+    </p>
+
+    <input type="file" accept=".xlsx,.xls" (change)="onFileSelected($event)">
+
+</div>

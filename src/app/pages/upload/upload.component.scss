@@ -1,0 +1,54 @@
+.upload-card {
+  max-width: 760px;
+  margin: 30px auto;
+  padding: 28px 24px;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #dfe8f5;
+  box-shadow: 0 10px 24px rgba(31, 55, 87, 0.08);
+  text-align: center;
+  color: #1d2430;
+
+  h2 {
+    margin: 0 0 12px;
+    color: #1f57c2;
+    font-size: clamp(1.6rem, 2vw, 2.1rem);
+  }
+
+  p {
+    margin: 0 0 18px;
+    color: #5f6c7b;
+    font-size: 1rem;
+  }
+
+  input[type="file"] {
+    width: min(100%, 420px);
+    margin: 0 auto;
+    padding: 12px 14px;
+    border: 1px dashed #bfd3f7;
+    border-radius: 12px;
+    background: #edf4ff;
+    color: #1d2430;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-card {
+    margin: 18px 12px;
+    padding: 20px 14px;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 12px 10px;
+      font-size: 0.95rem;
+    }
+  }
+}

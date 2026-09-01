@@ -1,0 +1,46 @@
+<div class="result-card" *ngIf="result">
+
+    <h2>Rate Found</h2>
+
+    <p>
+        <strong>Core:</strong>
+        {{ result.core }}
+    </p>
+
+    <p>
+        <strong>SQMM:</strong>
+        {{ result.sqmm }}
+    </p>
+
+    <p>
+        <strong>Metal:</strong>
+        {{ result.metal }}
+    </p>
+
+    <p>
+        <strong>Type:</strong>
+        {{ result.type }}
+    </p>
+
+    <p>
+        <strong>Colour:</strong>
+        {{ result.colour }}
+    </p>
+
+    <div class="price">
+        ₹ {{ result.rate }}
+    </div>
+
+    <button class="btn btn-green" (click)="copyRate()">
+        Copy Rate
+    </button>
+
+    <button class="btn btn-blue" (click)="newSearch()">
+        New Search
+    </button>
+
+</div>
+
+<div class="no-result" *ngIf="!result">
+    No Matching Rate Found
+</div>

@@ -1,0 +1,156 @@
+<div class="top-actions">
+    <button class="settings-btn" (click)="openSettings()">
+        ⚙
+    </button>
+</div>
+<div class="wizard-container">
+
+    <!-- STEP 1 -->
+
+    <div *ngIf="currentStep === 1" @stepAnimation>
+
+        <h2>Select SQMM</h2>
+
+        <div class="option-grid">
+
+            <div class="option-card" *ngFor="let item of sqmms" (click)="selectSqmm(item)">
+
+                {{ item }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- STEP 2 -->
+
+    <div *ngIf="currentStep === 2" @stepAnimation>
+
+        <h2>Select Core</h2>
+
+        <div class="option-grid">
+
+            <div class="option-card" *ngFor="let item of cores" (click)="selectCore(item)">
+                {{ item }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- STEP 3-->
+
+    <div *ngIf="currentStep === 3" @stepAnimation>
+
+        <h2>Select Metal</h2>
+
+        <div class="option-grid">
+
+            <div class="option-card" *ngFor="let item of metals" (click)="selectMetal(item)">
+
+                {{ item }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- STEP 4 -->
+
+    <div *ngIf="currentStep === 4" @stepAnimation>
+
+        <h2>Select Type</h2>
+
+        <div class="option-grid">
+
+            <div class="option-card" *ngFor="let item of types" (click)="selectType(item)">
+
+                {{ item }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- STEP 5 -->
+
+    <div *ngIf="currentStep === 5" @stepAnimation>
+
+        <h2>Select Colour</h2>
+
+        <div class="option-grid">
+
+            <div class="option-card" *ngFor="let item of colours" (click)="selectColour(item)">
+
+                {{ item }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- STEP 6*-->
+
+    <div *ngIf="currentStep === 6 && result" @stepAnimation>
+
+        <h2>Rate</h2>
+
+        <div class="result-box">
+
+            <div>SQMM : {{result.sqmm}}</div>
+            <div>Core : {{result.core}}</div>
+            <div>Metal : {{result.metal}}</div>
+            <div>Type : {{result.type}}</div>
+            <div>Colour : {{result.colour}}</div>
+
+            <div class="rate">
+                ₹ {{result.rate}}
+            </div>
+        </div>
+
+        <button class="restart-btn" (click)="startOver()">
+
+            Start Over
+
+        </button>
+    </div>
+
+
+
+</div>
+
+<div class="settings-overlay" *ngIf="showSettings">
+
+    <div class="settings-card">
+
+        <h3>Settings</h3>
+
+        <p>
+            Current Records :
+            {{ totalRecords }}
+        </p>
+
+        <p>
+            Last Update :
+            {{ lastUpdate }}
+        </p>
+
+        <label class="upload-btn">
+            Update Rate Sheet
+            <input type="file" accept=".xlsx,.xls" (change)="updateRateSheet($event)" hidden>
+        </label>
+
+        <button class="close-btn" (click)="closeSettings()">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
