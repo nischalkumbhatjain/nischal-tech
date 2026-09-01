@@ -50,6 +50,7 @@ export class WizardComponent implements OnInit {
 
   result: CableRate | null = null;
 
+  copyLabel = 'Copy Result';
   showSettings = false;
   totalRecords = 0;
   lastUpdate = '-';
@@ -159,6 +160,46 @@ export class WizardComponent implements OnInit {
     this.selectedColour = '';
 
     this.result = null;
+  }
+
+  async copyResult(): Promise<void> {
+    if (!this.result) {
+      return;
+    }
+
+    const textToCopy = [
+      'Cable Rate',
+      `SQMM : ${this.result.sqmm}`,
+      `Core : ${this.result.core}`,
+      `Metal : ${this.result.metal}`,
+      `Type : ${this.result.type}`,
+      `Colour : ${this.result.colour}`,
+      `Rate : ₹ ${this.result.rate}`
+    ].join('\n');
+
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(textToCopy);
+      } else {
+        const textArea = document.createElement('textarea');
+        textArea.value = textToCopy;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+
+      this.copyLabel = 'Copied!';
+    } catch (error) {
+      this.copyLabel = 'Copy failed';
+    }
+
+    setTimeout(() => {
+      this.copyLabel = 'Copy Result';
+    }, 1500);
   }
 
   openSettings(): void {

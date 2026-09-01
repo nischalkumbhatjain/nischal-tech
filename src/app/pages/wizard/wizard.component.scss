@@ -84,18 +84,34 @@ h2 {
   color: #1d9b69;
 }
 
+.copy-btn,
 .restart-btn {
   display: block;
   width: min(100%, 520px);
   margin: 20px auto 0;
   padding: 15px 18px;
-  background: linear-gradient(135deg, #2f6fe5 0%, #5b92ff 100%);
-  color: #ffffff;
   border: none;
   border-radius: 10px;
   font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.copy-btn {
+  background: linear-gradient(135deg, #1d9b69 0%, #31c58a 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(29, 155, 105, 0.18);
+}
+
+.copy-btn:hover,
+.restart-btn:hover {
+  transform: translateY(-1px);
+}
+
+.restart-btn {
+  background: linear-gradient(135deg, #2f6fe5 0%, #5b92ff 100%);
+  color: #ffffff;
   box-shadow: 0 10px 20px rgba(47, 111, 229, 0.15);
 }
 
@@ -258,6 +274,7 @@ h2 {
     right: 12px;
   }
 
+  .copy-btn,
   .restart-btn {
     width: calc(100% - 8px);
     padding: 14px 16px;
