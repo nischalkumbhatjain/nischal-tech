@@ -10,13 +10,15 @@ import { ToastrModule } from 'ngx-toastr';
 import { UploadComponent } from './pages/upload/upload.component';
 import { WizardComponent } from './pages/wizard/wizard.component';
 import { ResultComponent } from './pages/result/result.component';
+import { DeveloperCountComponent } from './pages/developer-count/developer-count.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadComponent,
     WizardComponent,
-    ResultComponent
+    ResultComponent,
+    DeveloperCountComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+<main class="developer-count">
+  <ng-container *ngIf="authorized; else unauthorized">
+    <h2>Developer visit count</h2>
+    <p *ngIf="loading">Loading...</p>
+    <p class="count" *ngIf="!loading && count !== null">{{ count }}</p>
+    <p class="error" *ngIf="error">{{ error }}</p>
+    <button type="button" *ngIf="!loading" (click)="loadCount()">Refresh</button>
+  </ng-container>
+
+  <ng-template #unauthorized>
+    <h2>Not available</h2>
+  </ng-template>
+</main>

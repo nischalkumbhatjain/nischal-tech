@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CountApiService } from './services/count-api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Nischal Tech';
+
+  constructor(private readonly countApiService: CountApiService) { }
+
+  ngOnInit(): void {
+    void this.countApiService.trackVisit();
+  }
 }
