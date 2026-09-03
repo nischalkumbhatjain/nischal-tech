@@ -9,6 +9,7 @@ import {
 } from '@angular/animations';
 import { ExcelService } from 'src/app/services/excel.service';
 import { IndexedDbService } from 'src/app/services/indexed-db.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wizard',
@@ -58,13 +59,21 @@ export class WizardComponent implements OnInit {
   constructor(
     private rateService: RateService,
     private excelService: ExcelService,
-    private dbService: IndexedDbService
+    private dbService: IndexedDbService,
+    private router: Router
   ) { }
 
   async ngOnInit(): Promise<void> {
-    this.sqmms = await this.getAllSqmm();
-
     const allData = await this.rateService.getAllRates();
+
+    if (allData.length === 0) {
+      await this.router.navigate(['/']);
+      return;
+    }
+
+    this.sqmms = [...new Set(
+      allData.map(x => x.sqmm)
+    )].sort((a, b) => a - b);
 
     this.totalRecords = allData.length;
     this.lastUpdate = localStorage.getItem('lastRateUpdate') || '-';
