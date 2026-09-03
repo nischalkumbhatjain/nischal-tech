@@ -24,6 +24,10 @@ const routes: Routes = [
     component: DeveloperCountComponent
   },
   {
+    path: 'wizard/developer/count',
+    component: DeveloperCountComponent
+  },
+  {
     path: '**',
     redirectTo: ''
   }
