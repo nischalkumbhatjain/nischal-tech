@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1788428301094,
+  "timestamp": 1788431947167,
   "index": "/nischal-tech/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/nischal-tech/favicon.ico",
         "/nischal-tech/index.html",
-        "/nischal-tech/main.841a662aa58ead17.js",
+        "/nischal-tech/main.b42d483757cc9ad8.js",
         "/nischal-tech/manifest.webmanifest",
         "/nischal-tech/polyfills.ba02a71331cabe7c.js",
         "/nischal-tech/runtime.22483c3368df54db.js",
@@ -58,8 +58,8 @@
     "/nischal-tech/bootstrap-icons.154365acf3010d96.woff2": "b441fcff939e24fa0906a37b7788788b9fddbb68",
     "/nischal-tech/bootstrap-icons.ac1a99b3d05d8232.woff": "762010c79b4a05e1131fc8fb3b1aeff324d8033f",
     "/nischal-tech/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/nischal-tech/index.html": "a02d5262614f1efd3958da151fdcd13b78208cc6",
-    "/nischal-tech/main.841a662aa58ead17.js": "e6f4fd9035f51e96b424c211117c485d3debc5f7",
+    "/nischal-tech/index.html": "a8d1d450f0a4e97e3d0caea3ae36e68406acb68e",
+    "/nischal-tech/main.b42d483757cc9ad8.js": "b8e9377d82688ace79ca1eb07c1d6563bfdaaefd",
     "/nischal-tech/manifest.webmanifest": "532849bfa98e0b7c624e91663b22a91f1b3036ea",
     "/nischal-tech/polyfills.ba02a71331cabe7c.js": "e741c6f9c30743ff4c164814d59af30fab7954b6",
     "/nischal-tech/runtime.22483c3368df54db.js": "310f26ee7c9904058e19a17d28f3d0f13f0284f9",
