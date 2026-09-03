@@ -117,7 +117,7 @@ h2 {
 
 .top-actions {
   position: fixed;
-  top: 80px;
+  top: 34px;
   right: 15px;
   z-index: 1000;
 }
@@ -233,7 +233,7 @@ h2 {
 
 @media (max-width: 480px) {
   h2 {
-    margin-bottom: 18px;
+    margin-bottom: 25px;
     font-size: clamp(1.5rem, 7vw, 2rem);
   }
 
