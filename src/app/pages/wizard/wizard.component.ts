@@ -168,19 +168,11 @@ export class WizardComponent implements OnInit {
     ].join('\n');
 
     try {
-      if (navigator.clipboard && window.isSecureContext) {
-        await navigator.clipboard.writeText(textToCopy);
-      } else {
-        const textArea = document.createElement('textarea');
-        textArea.value = textToCopy;
-        textArea.style.position = 'fixed';
-        textArea.style.opacity = '0';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
+      if (!navigator.clipboard || !window.isSecureContext) {
+        throw new Error('Clipboard API is unavailable');
       }
+
+      await navigator.clipboard.writeText(textToCopy);
 
       this.copyLabel = 'Copied!';
     } catch (error) {
