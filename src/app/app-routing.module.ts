@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { UploadComponent } from './pages/upload/upload.component';
 import { WizardComponent } from './pages/wizard/wizard.component';
-import { ResultComponent } from './pages/result/result.component';
 import { DeveloperCountComponent } from './pages/developer-count/developer-count.component';
 
 const routes: Routes = [
@@ -14,10 +13,6 @@ const routes: Routes = [
   {
     path: 'wizard',
     component: WizardComponent
-  },
-  {
-    path: 'result',
-    component: ResultComponent
   },
   {
     path: 'developer/count',

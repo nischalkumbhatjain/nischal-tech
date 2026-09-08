@@ -12,8 +12,8 @@ export class IndexedDbService extends Dexie {
   constructor() {
     super('NischalTechDB');
 
-    this.version(1).stores({
-      cableRates: '++id,sqmm,core,metal,type,colour,rate'
+    this.version(2).stores({
+      cableRates: '++id,sqmm,core,type,colour,rate'
     });
   }
 

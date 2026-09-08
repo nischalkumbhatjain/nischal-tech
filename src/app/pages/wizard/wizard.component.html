@@ -24,18 +24,8 @@
         </div>
     </div>
 
-    <!-- STEP 3-->
+    <!-- STEP 3 -->
     <div *ngIf="currentStep === 3" @stepAnimation>
-        <h2>Select Metal</h2>
-        <div class="option-grid">
-            <div class="option-card" *ngFor="let item of metals" (click)="selectMetal(item)">
-                {{ item }}
-            </div>
-        </div>
-    </div>
-
-    <!-- STEP 4 -->
-    <div *ngIf="currentStep === 4" @stepAnimation>
         <h2>Select Type</h2>
         <div class="option-grid">
             <div class="option-card" *ngFor="let item of types" (click)="selectType(item)">
@@ -44,8 +34,8 @@
         </div>
     </div>
 
-    <!-- STEP 5 -->
-    <div *ngIf="currentStep === 5" @stepAnimation>
+    <!-- STEP 4 -->
+    <div *ngIf="currentStep === 4" @stepAnimation>
         <h2>Select Colour</h2>
         <div class="option-grid">
             <div class="option-card" *ngFor="let item of colours" (click)="selectColour(item)">
@@ -54,15 +44,16 @@
         </div>
     </div>
 
-    <!-- STEP 6*-->
-    <div *ngIf="currentStep === 6 && result" @stepAnimation>
+    <!-- STEP 5 -->
+    <div *ngIf="currentStep === 5 && result" @stepAnimation>
         <h2>Rate</h2>
         <div class="result-box">
             <div>SQMM : {{result.sqmm}}</div>
             <div>Core : {{result.core}}</div>
-            <div>Metal : {{result.metal}}</div>
             <div>Type : {{result.type}}</div>
             <div>Colour : {{result.colour}}</div>
+            <div>Net : {{result.net}}</div>
+            <div>Frequency : {{result.frequency}}</div>
 
             <div class="rate">
                 ₹ {{result.rate}}

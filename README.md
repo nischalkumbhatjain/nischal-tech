@@ -8,7 +8,7 @@ kept in the browser, so subsequent searches do not require another upload.
 ## Features
 
 - Import `.xlsx` and `.xls` rate sheets in the browser.
-- Filter rates by SQMM, core, metal, type, and colour.
+- Filter rates by SQMM, core, type, and colour.
 - Copy a formatted rate result to the clipboard.
 - Update the stored rate sheet from the wizard settings panel.
 - Keep rate data in IndexedDB using Dexie.
@@ -24,17 +24,18 @@ The first worksheet is read. Its headers must use the following names:
 | --- | --- |
 | `sqmm` | Numeric cable cross-sectional area |
 | `core` | Numeric core count |
-| `metal` | Conductor metal, such as copper or aluminium |
 | `type` | Cable type |
 | `colour` | Cable colour |
 | `rate` | Numeric rate |
+| `net` | Numeric net value |
+| `frequency` | Frequency code, such as R or S |
 
 Example:
 
 ```csv
-sqmm,core,metal,type,colour,rate
-1.5,2,Copper,PVC,Red,1250
-2.5,3,Aluminium,XLPE,Black,2100
+sqmm,core,type,colour,rate,net,frequency
+1.5,2,PVC,Red,1250,898,R
+2.5,3,XLPE,Black,2100,966,S
 ```
 
 Although the example is shown as CSV for readability, upload the data as an
@@ -44,7 +45,7 @@ converted during import.
 ## User flow
 
 1. Open the app and upload a rate sheet if no data is stored locally.
-2. Select SQMM, core, metal, type, and colour in the wizard.
+2. Select SQMM, core, type, and colour in the wizard.
 3. View the matching rate and copy the formatted result.
 4. Use **Start Over** for another lookup, or use settings to replace the rate
 	 sheet.

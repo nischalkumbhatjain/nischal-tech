@@ -39,13 +39,11 @@ export class WizardComponent implements OnInit {
 
   sqmms: number[] = [];
   cores: number[] = [];
-  metals: string[] = [];
   types: string[] = [];
   colours: string[] = [];
 
   selectedSqmm!: number;
   selectedCore!: number;
-  selectedMetal!: string;
   selectedType!: string;
   selectedColour!: string;
 
@@ -108,25 +106,12 @@ export class WizardComponent implements OnInit {
 
     this.selectedCore = value;
 
-    this.metals = await this.rateService.getMetals(
+    this.types = await this.rateService.getTypes(
       this.selectedCore,
       this.selectedSqmm
     );
 
     this.currentStep = 3;
-  }
-
-  async selectMetal(value: string) {
-
-    this.selectedMetal = value;
-
-    this.types = await this.rateService.getTypes(
-      this.selectedCore,
-      this.selectedSqmm,
-      this.selectedMetal
-    );
-
-    this.currentStep = 4;
   }
 
   async selectType(value: string) {
@@ -136,11 +121,10 @@ export class WizardComponent implements OnInit {
     this.colours = await this.rateService.getColours(
       this.selectedCore,
       this.selectedSqmm,
-      this.selectedMetal,
       this.selectedType
     );
 
-    this.currentStep = 5;
+    this.currentStep = 4;
   }
 
   async selectColour(value: string) {
@@ -150,12 +134,11 @@ export class WizardComponent implements OnInit {
     this.result = await this.rateService.getFinalRate(
       this.selectedCore,
       this.selectedSqmm,
-      this.selectedMetal,
       this.selectedType,
       this.selectedColour
     );
 
-    this.currentStep = 6;
+    this.currentStep = 5;
   }
 
   startOver(): void {
@@ -164,7 +147,6 @@ export class WizardComponent implements OnInit {
 
     this.selectedSqmm = 0;
     this.selectedCore = 0;
-    this.selectedMetal = '';
     this.selectedType = '';
     this.selectedColour = '';
 
@@ -180,9 +162,10 @@ export class WizardComponent implements OnInit {
       'Cable Rate',
       `SQMM : ${this.result.sqmm}`,
       `Core : ${this.result.core}`,
-      `Metal : ${this.result.metal}`,
       `Type : ${this.result.type}`,
       `Colour : ${this.result.colour}`,
+      `Net : ${this.result.net}`,
+      `Frequency : ${this.result.frequency}`,
       `Rate : ₹ ${this.result.rate}`
     ].join('\n');
 

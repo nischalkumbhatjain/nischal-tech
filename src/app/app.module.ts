@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { UploadComponent } from './pages/upload/upload.component';
 import { WizardComponent } from './pages/wizard/wizard.component';
-import { ResultComponent } from './pages/result/result.component';
 import { DeveloperCountComponent } from './pages/developer-count/developer-count.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { DeveloperCountComponent } from './pages/developer-count/developer-count
     AppComponent,
     UploadComponent,
     WizardComponent,
-    ResultComponent,
     DeveloperCountComponent
   ],
   imports: [

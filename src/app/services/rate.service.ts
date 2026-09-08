@@ -34,7 +34,7 @@ export class RateService {
       .sort((a, b) => a - b);
   }
 
-  async getMetals(
+  async getTypes(
     core: number,
     sqmm: number
   ): Promise<string[]> {
@@ -46,24 +46,6 @@ export class RateService {
     );
 
     return [
-      ...new Set(filtered.map(x => x.metal))
-    ];
-  }
-
-  async getTypes(
-    core: number,
-    sqmm: number,
-    metal: string
-  ): Promise<string[]> {
-    const data = await this.dbService.getAllRates();
-
-    const filtered = data.filter(x =>
-      Number(x.core) === Number(core) &&
-      Number(x.sqmm) === Number(sqmm) &&
-      String(x.metal).trim() === String(metal).trim()
-    );
-
-    return [
       ...new Set(filtered.map(x => x.type))
     ];
   }
@@ -71,7 +53,6 @@ export class RateService {
   async getColours(
     core: number,
     sqmm: number,
-    metal: string,
     type: string
   ): Promise<string[]> {
     const data = await this.dbService.getAllRates();
@@ -79,8 +60,6 @@ export class RateService {
     const filtered = data.filter(x =>
       Number(x.core) === Number(core) &&
       Number(x.sqmm) === Number(sqmm) &&
-      String(x.metal).trim().toLowerCase() ===
-      String(metal).trim().toLowerCase() &&
       String(x.type).trim().toLowerCase() ===
       String(type).trim().toLowerCase()
     );
@@ -93,7 +72,6 @@ export class RateService {
   async getFinalRate(
     core: number,
     sqmm: number,
-    metal: string,
     type: string,
     colour: string
   ): Promise<CableRate | null> {
@@ -103,7 +81,6 @@ export class RateService {
     return data.find(x =>
       Number(x.core) === Number(core) &&
       Number(x.sqmm) === Number(sqmm) &&
-      String(x.metal).trim().toLowerCase() === String(metal).trim().toLowerCase() &&
       String(x.type).trim().toLowerCase() === String(type).trim().toLowerCase() &&
       String(x.colour).trim().toLowerCase() === String(colour).trim().toLowerCase()
     ) || null;

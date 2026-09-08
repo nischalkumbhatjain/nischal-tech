@@ -31,10 +31,11 @@ export class ExcelService {
     return rawData.map(row => ({
       sqmm: Number(row['sqmm']),
       core: Number(row['core']),
-      metal: String(row['metal']).trim(),
       type: String(row['type']).trim(),
       colour: String(row['colour']).trim(),
-      rate: Number(row['rate'])
+      rate: Number(row['rate']),
+      net: Number(row['net']),
+      frequency: String(row['frequency']).trim()
     }));
   }
 }
