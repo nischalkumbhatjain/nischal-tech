@@ -164,8 +164,6 @@ export class WizardComponent implements OnInit {
       `Core : ${this.result.core}`,
       `Type : ${this.result.type}`,
       `Colour : ${this.result.colour}`,
-      `Net : ${this.result.net}`,
-      `Frequency : ${this.result.frequency}`,
       `Rate : ₹ ${this.result.rate}`
     ].join('\n');
 
