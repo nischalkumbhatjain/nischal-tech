@@ -10,6 +10,7 @@ import {
 import { ExcelService } from 'src/app/services/excel.service';
 import { IndexedDbService } from 'src/app/services/indexed-db.service';
 import { Router } from '@angular/router';
+import { CountApiService } from '../../services/count-api.service';
 
 @Component({
   selector: 'app-wizard',
@@ -58,7 +59,8 @@ export class WizardComponent implements OnInit {
     private rateService: RateService,
     private excelService: ExcelService,
     private dbService: IndexedDbService,
-    private router: Router
+    private router: Router,
+    private readonly countApiService: CountApiService
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -142,6 +144,8 @@ export class WizardComponent implements OnInit {
   }
 
   startOver(): void {
+
+    void this.countApiService.trackVisit();
 
     this.currentStep = 1;
 
